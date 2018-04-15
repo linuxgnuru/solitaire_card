@@ -23,5 +23,6 @@ clean:
 install: $(PROGNAME)
 	sudo install -d $(PREFIX)/bin/
 	sudo install -m 755 $(PROGNAME) $(PREFIX)/bin/
-
+	sudo install -d $(PREFIX)/man/man6/
+	sudo install $(PROGNAME).6 $(PREFIX)/man/man6/$(PROGNAME).6
 
