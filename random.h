@@ -22,7 +22,7 @@
 
 class randomInteger
 {
-public:
-unsigned int operator () (unsigned int max);
+  public:
+    unsigned int operator () (unsigned int max);
 };
 #endif

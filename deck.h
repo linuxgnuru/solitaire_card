@@ -17,67 +17,67 @@
     along with bathroom_sol.  If not, see <http://www.gnu.org/licenses/>.
 
  */
-// Deck.h
+// deck.h
 #ifndef __DECK_H
 #define __DECK_H
 
-#include <iostream>
 #include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include <sys/types.h>
-//#include <sys/time.h>
 #include <time.h>
 #include <vector>
 #include <algorithm>
+
+#include <iostream>
+
 using namespace std;
 
-#define TRUE 1
-#define FALSE 0
+#ifndef	TRUE
+#  define	TRUE	(1==1)
+#  define	FALSE	(1==2)
+#endif
 
 #include "cards.h"
 
 class Deck
 {
-private:
-  
-	enum { HEARTS = 1, SPADES, DIAMONDS, CLUBS, ERR };
-	enum { ACE = 1, TEN = 10, JACK = 11, QUEEN = 12, KING = 13 };
-	enum { DECK_SZ = 52 };
-	
-	struct player
-	{
-		char name[30];
-		int pid;
-		vector<Card> hand;
-		int pos;
-	};
-	Card *newdeck;
-	vector<Card> cards;
-	
-	player p;
-	
-	int use_newdeck;
-	int num_newdeck;
-	int left_over;
-	int is_shuffled;
+  private:
 
-	void MakeDeck();
-	void Error(char *emsg);
-	void PrintCard(Card my_card);
-	bool isEmpty() const;
-	
-public:
-	
-	int ErrNum;
-	Deck();
-	~Deck(void);
-	void Shuffle();
-	void ShowDeck();
-	int DeckLeft();
-	void Draw(Card &c);
-	void printCard(Card c);
-		
+    enum { HEARTS = 1, SPADES, DIAMONDS, CLUBS, ERR };
+    enum { ACE = 1, TEN = 10, JACK = 11, QUEEN = 12, KING = 13 };
+    enum { DECK_SZ = 52 };
+
+    struct player
+    {
+      char name[30];
+      int pid;
+      vector<Card> hand;
+      int pos;
+    };
+    Card *newdeck;
+    vector<Card> cards;
+
+    player p;
+
+    int use_newdeck;
+    int num_newdeck;
+    int left_over;
+    int is_shuffled;
+
+    void MakeDeck();
+    void Error(char *emsg);
+    void PrintCard(Card my_card);
+    bool isEmpty() const;
+
+  public:
+
+    int ErrNum;
+    Deck();
+    ~Deck(void);
+    void Shuffle();
+    void ShowDeck();
+    int DeckLeft();
+    void Draw(Card &c);
+    void printCard(Card c);
+
 };
 
 #endif

@@ -17,6 +17,7 @@
     along with bathroom_sol.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+// cards.cpp
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -41,16 +42,16 @@ unsigned int Card::GetRank() const
 
 suits Card::GetSuit() const
 {
-	return suit;
+  return suit;
 }
 
 void Card::SetRank(unsigned int rv)
 {
-	assert((rv > 0) && (rv <= rank_max));
-	rank = rv;
+  assert((rv > 0) && (rv <= rank_max));
+  rank = rv;
 }
 
 void Card::SetSuit(suits sv)
 {
-	suit = sv;
+  suit = sv;
 }

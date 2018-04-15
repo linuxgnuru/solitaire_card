@@ -17,8 +17,14 @@
     along with bathroom_sol.  If not, see <http://www.gnu.org/licenses/>.
 
  */
+// cards.h
 #ifndef __CARDS_H
 #define __CARDS_H
+
+#define S_SPADE   "\xE2\x99\xA0"
+#define S_CLUB    "\xE2\x99\xA3"
+#define S_HEART   "\xE2\x99\xA5"
+#define S_DIAMOND "\xE2\x99\xA6"
 
 #include <vector>
 using namespace std;
@@ -26,30 +32,21 @@ using namespace std;
 enum suits { diamond, club, heart, spade, ERR };
 enum { ACE = 1, TEN = 10, JACK = 11, QUEEN = 12, KING = 13 };
 
-/*
-struct suits {
-  int diamond = 1;
-	int club = 2;
-	int heart = 3;
-	int spade = 4;
-};
-*/
-
 class Card
 {
-private:
-	unsigned int rank;
-	suits suit;
-	static const unsigned int rank_max = 13;
+  private:
+    unsigned int rank;
+    suits suit;
+    static const unsigned int rank_max = 13;
 
-public:
-	Card();
-	~Card();
-	
-	unsigned int GetRank() const;
-	suits GetSuit() const;
-	void SetRank(unsigned int rv);
-	void SetSuit(suits sv);
+  public:
+    Card();
+    ~Card();
+
+    unsigned int GetRank() const;
+    suits GetSuit() const;
+    void SetRank(unsigned int rv);
+    void SetSuit(suits sv);
 };
 
 #endif

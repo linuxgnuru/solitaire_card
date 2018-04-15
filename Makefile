@@ -1,17 +1,27 @@
-all: bs
+PROGNAME = bathsol
+CC = g++
+DEBUG = -O2 -ggdb
+CFLAGS = $(DEBUG) -Wall -std=c++11
+SRC = main.cpp cards.cpp random.cpp deck.cpp
+OBJ = $(SRC:.cpp=.o)
 
-bs: main.o cards.o random.o Deck.o
+ifeq ($(PREFIX),)
+	PREFIX := /usr/local
+endif
 
-main.o: main.cpp
-  g++ -c main.cpp
+all: clean $(PROGNAME)
 
-cards.o: cards.cpp
-	g++ -c cards.cpp
+$(PROGNAME): $(OBJ)
+	@$(CC) -o $@ $(OBJ) $(LIBS)
 
-random.o: random.cpp
-	g++ -c random.cpp
-Deck.o: Deck.cpp
-	g++ -c Deck.cpp
+.cpp.o:
+	@$(CC) -c $(CFLAGS) $< -o $@
+
 clean:
-	rm -rf *o bs
-#g++ -o bs main.cpp cards.o random.o Deck.o
+	rm -f *.o $(PROGNAME)
+
+install: $(PROGNAME)
+	sudo install -d $(PREFIX)/bin/
+	sudo install -m 755 $(PROGNAME) $(PREFIX)/bin/
+
+

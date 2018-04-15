@@ -23,5 +23,5 @@
 unsigned int randomInteger::operator () (unsigned int max)
 {
   unsigned int rval = rand();
-	return rval % max;
+  return rval % max;
 }
